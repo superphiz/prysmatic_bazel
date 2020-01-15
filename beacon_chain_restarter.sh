@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while true
+do
+	cd $HOME/prysm && /usr/bin/git gc --prune=now
+	cd $HOME/prysm && /usr/bin/git pull
+	cd $HOME/prysm && $HOME/bin/bazel build //beacon-chain:beacon-chain --define=kafka_enabled=false
+	cd $HOME/prysm && $HOME/bin/bazel run //beacon-chain -- --datadir=$HOME/prysm --p2p-host-ip=$(curl -s ident.me) --p2p-max-peers=100 --web3provider=ws://localhost:8546/ --http-web3provider=http://localhost:8545/ --peer /dns4/api.attestant.io/tcp/13000/p2p/16Uiu2HAmAsyW714qpiYz9dNEoDyLa29SuzXwU4sY3fQrRtUxN1bT
+done
+
