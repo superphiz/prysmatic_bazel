@@ -38,8 +38,8 @@ cd $HOME && git clone https://github.com/prysmaticlabs/prysm
 
 sudo cp $HOME/prysmatic_setup/rc.local /etc/
 
-cp $HOME/prysmatic_setup/*.sh $HOME/prysm/
+#cp $HOME/prysmatic_setup/*.sh $HOME/prysm/
 
-cd $HOME/prysm && $HOME/prysm/create_wallet.sh
+$HOME/prysm/create_wallet.sh
 
 echo "The basic setup is done. copy the message and use it to send the transaction from https://alpha.prylabs.net/participate, and reboot this computer. When you reboot the server there should be two screen sessions accessible by 'screen -ls' that will show 'beacon' and 'validator'."
