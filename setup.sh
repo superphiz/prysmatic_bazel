@@ -36,11 +36,11 @@ bazel version
 #cloning the prysmatic client
 cd $HOME && git clone https://github.com/prysmaticlabs/prysm
 
-sudo cp $HOME/prysmatic_setup/rc.local /etc/
+sudo cp $HOME/prysmatic_bazel/rc.local /etc/
 
 #permissions got jacked for the git repo, won't hurt to set all home permissions
 sudo chown -R $USER:$USER ~/
 
-$HOME/prysm/create_wallet.sh
+cd $HOME && $HOME/prysmatic_bazel/create_wallet.sh
 
 echo "The basic setup is done. copy the message and use it to send the transaction from https://alpha.prylabs.net/participate, and reboot this computer. When you reboot the server there should be two screen sessions accessible by 'screen -ls' that will show 'beacon' and 'validator'."
