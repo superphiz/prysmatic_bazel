@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#NOTE:The first time you run this it's going to take an eternity to build cmake, just wait. Like, more than ten minutes.
+
 while true
 do
 	cd $HOME/prysm && /usr/bin/git gc --prune=now

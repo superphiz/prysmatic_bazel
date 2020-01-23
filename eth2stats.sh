@@ -1,5 +1,14 @@
 #!/bin/sh
 
+#If docker isn't installed... don't just uncomment this, it'll need to be step by step.
+
+#   curl -fsSL https://get.docker.com -o get-docker.sh
+#   sh get-docker.sh
+#   sudo apt install -y docker-compose
+#   sudo usermod -aG docker $USER
+
+
+
 #This will stop any currently running docker image for ethstats
 docker stop eth2stats
 docker rm eth2stats
@@ -12,7 +21,7 @@ docker run -d --name eth2stats --restart always --network="host" \
       -v ~/eth2stats/data:/data \
       alethio/eth2stats-client:latest \
       run --v \
-      --eth2stats.node-name="superphiz" \
+      --eth2stats.node-name="$HOSTNAME" \
       --data.folder="$HOME/prysm" \
       --eth2stats.addr="grpc.sapphire.eth2stats.net:443" \
       --beacon.metrics-addr="http://localhost:8080/metrics" \
