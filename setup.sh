@@ -38,7 +38,8 @@ cd $HOME && git clone https://github.com/prysmaticlabs/prysm
 
 sudo cp $HOME/prysmatic_setup/rc.local /etc/
 
-#cp $HOME/prysmatic_setup/*.sh $HOME/prysm/
+#permissions got jacked for the git repo, won't hurt to set all home permissions
+sudo chown -R $USER:$USER ~/
 
 $HOME/prysm/create_wallet.sh
 
