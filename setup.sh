@@ -6,7 +6,7 @@
 sudo sh -c "echo \"`id -un -- 1000` ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff\" >> /etc/sudoers"
 
 #install dependencies for bazel, expect is to add the unbuffer command to allow colorful text piping
-sudo apt install -y git pkg-config zip g++ zlib1g-dev unzip python expect git curl
+sudo apt install -y pkg-config zip g++ zlib1g-dev unzip python expect git curl screen
 
 #download bazel (this could be updated to pull the latest release!)
 wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh
