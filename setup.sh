@@ -2,12 +2,10 @@
 
 #2019-06-06 based on https://github.com/prysmaticlabs/prysm
 
-
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1
 fi
-
 
 #Adding to the docker group is necessary for eth2stats to run.
 groups `id -un -- 1000`| grep docker
@@ -43,6 +41,7 @@ fi
 
 #launch the stats monitor
 $HOME/prysmatic_bazel/eth2stats.sh
+
 
 #user 1000 (main user) needs to reboot without password:
 sudo sh -c "echo \"`id -un -- 1000` ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff\" >> /etc/sudoers"
