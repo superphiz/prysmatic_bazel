@@ -21,7 +21,7 @@ docker run -d --name eth2stats --restart always --network="host" \
       -v ~/eth2stats/data:/data \
       alethio/eth2stats-client:latest \
       run --v \
-      --eth2stats.node-name="$HOSTNAME" \
+      --eth2stats.node-name="superphiz script" \
       --data.folder="$HOME/prysm" \
       --eth2stats.addr="grpc.sapphire.eth2stats.net:443" \
       --beacon.metrics-addr="http://localhost:8080/metrics" \
