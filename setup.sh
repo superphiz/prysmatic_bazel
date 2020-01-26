@@ -1,11 +1,14 @@
 #!/bin/bash
 
 #2019-06-06 based on https://github.com/prysmaticlabs/prysm
+#2020-01-25 considering it mostly done, now is fully automated install and launch of goerli geth, beacon chain, validator, and eth2stats.
 
 if [ $EUID != 0 ]; then
     sudo "$0" "$@"
     exit $?
 fi
+
+sudo apt update && sudo apt dist-upgrade -y
 
 #Adding to the docker group is necessary for eth2stats to run.
 groups `id -un -- 1000`| grep docker
