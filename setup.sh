@@ -83,11 +83,6 @@ echo "source $HOME/.bazel/bin/bazel-complete.bash" >> $HOME/.bashrc
 #sourcing all of this now so it goes into effect immediately. 
 source $HOME/.bashrc
 
-#permissions got jacked for the git repo, won't hurt to set all home permissions
-sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/
-sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/.*
-sudo chown -R root:root /home/`id -un -- 1000`/.cache/bazel/_bazel_root
-
 #remove the prysm directory on the off chance it already exists (user re-runs script)
 rm -rf $HOME/prysm
 
@@ -96,6 +91,11 @@ cd $HOME && git clone https://github.com/prysmaticlabs/prysm
 
 #adding screen start jobs at boot
 sudo cp $HOME/prysmatic_bazel/rc.local /etc/
+
+#permissions got jacked for the git repo, won't hurt to set all home permissions
+sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/
+sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/.*
+sudo chown -R root:root /home/`id -un -- 1000`/.cache/bazel/_bazel_root
 
 #starting screen jobs now
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS beacon-screen  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/beacon_chain_restarter.sh; exec bash'"
