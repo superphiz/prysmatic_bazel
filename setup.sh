@@ -54,10 +54,10 @@ $HOME/prysmatic_bazel/eth2stats.sh
 sudo sh -c "echo \"`id -un -- 1000` ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff\" >> /etc/sudoers"
 
 #add ethereum repository for geth
-sudo add-apt-repository -y ppa:ethereum/ethereum
+#sudo add-apt-repository -y ppa:ethereum/ethereum
 
 #install geth
-sudo apt install -y geth
+#sudo apt install -y geth
 
 #download bazel (this could be updated to pull the latest release!)
 wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh
@@ -102,7 +102,7 @@ sudo chown -R `id -un -- 1000`:`id -un -- 1000` /home/`id -un -- 1000`/.cache/ba
 #starting screen jobs now
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS beacon-screen  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/beacon_chain_restarter.sh; exec bash'"
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS validator-screen  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/validator_restarter.sh; exec bash'"
-/bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS geth  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/launch_geth.sh; exec bash'"
+#/bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS geth  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/launch_geth.sh; exec bash'"
 
 
 #still encountering a permission bug, just throwing potential solutions at it.
