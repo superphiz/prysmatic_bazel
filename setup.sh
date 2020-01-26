@@ -90,6 +90,9 @@ cd $HOME && git clone https://github.com/prysmaticlabs/prysm
 #adding screen start jobs at boot
 sudo cp $HOME/prysmatic_bazel/rc.local /etc/
 
+#create a key pair just to get things started.
+cd $HOME && $HOME/prysmatic_bazel/create_wallet.sh
+
 #permissions got jacked for the git repo, won't hurt to set all home permissions
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/.*
@@ -110,8 +113,7 @@ sudo chown -R `id -un -- 1000`:`id -un -- 1000` $HOME/.*
 sudo chown -R root:root $HOME/.cache/bazel/_bazel_root
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` /home/`id -un -- 1000`/.cache/bazel
 
-#create a key pair just to get things started.
-cd $HOME && $HOME/prysmatic_bazel/create_wallet.sh
+
 
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
