@@ -86,7 +86,10 @@ source $HOME/.bashrc
 #permissions got jacked for the git repo, won't hurt to set all home permissions
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/.*
-sudo chown -R root:root /home/staker/.cache/bazel/_bazel_root
+sudo chown -R root:root /home/`id -un -- 1000`/.cache/bazel/_bazel_root
+
+#remove the prysm directory on the off chance it already exists (user re-runs script)
+rm -rf $HOME/prysm
 
 #cloning the prysmatic client
 cd $HOME && git clone https://github.com/prysmaticlabs/prysm
