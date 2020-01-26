@@ -24,7 +24,7 @@ else
   sudo groupadd docker
   sudo usermod -aG docker `id -un -- 1000`
   #give a notice then terminate the script beacuse they're not ready
-  echo "You are NOT in the docker group I\'m adding you, but you MUST exit and log back in and restart this script. \(Sorry, it has to be this way\)"
+  echo "You are NOT in the docker group I'm adding you, but you MUST exit and log back in and restart this script. (Sorry, it has to be this way)"
   echo "REBOOT and relaunch setup.sh"
   echo "REBOOT and relaunch setup.sh"
   echo "REBOOT and relaunch setup.sh"
