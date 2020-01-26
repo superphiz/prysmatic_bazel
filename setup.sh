@@ -8,7 +8,12 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
+#update the system
 sudo apt update && sudo apt dist-upgrade -y
+
+#install dependencies for bazel, expect is to add the unbuffer command to allow colorful text piping
+sudo apt install -y pkg-config zip g++ zlib1g-dev unzip python expect git curl screen
+
 
 #Adding to the docker group is necessary for eth2stats to run.
 groups `id -un -- 1000`| grep docker
@@ -55,9 +60,6 @@ sudo add-apt-repository -y ppa:ethereum/ethereum
 
 #install geth
 sudo apt install -y geth
-
-#install dependencies for bazel, expect is to add the unbuffer command to allow colorful text piping
-sudo apt install -y pkg-config zip g++ zlib1g-dev unzip python expect git curl screen
 
 #download bazel (this could be updated to pull the latest release!)
 wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh
