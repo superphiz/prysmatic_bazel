@@ -102,8 +102,8 @@ sudo chown -R `id -un -- 1000`:`id -un -- 1000` /home/`id -un -- 1000`/.cache/ba
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS geth  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/launch_geth.sh; exec bash'"
 
 
-
-#permissions got jacked for the git repo, won't hurt to set all home permissions
+#still encountering a permission bug, just throwing potential solutions at it.
+#FATAL: mkdir('/home/superphiz/.cache/bazel/_bazel_superphiz'): (error: 13): Permission denied
 sudo mkdir -p $HOME/.cache/bazel/_bazel_`id -un -- 1000`
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` $HOME
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` $HOME/.*
