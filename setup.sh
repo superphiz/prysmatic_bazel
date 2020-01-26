@@ -8,13 +8,7 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
-#update the system
-sudo apt update && sudo apt dist-upgrade -y
-
-#install dependencies for bazel, expect is to add the unbuffer command to allow colorful text piping
-sudo apt install -y pkg-config zip g++ zlib1g-dev unzip python expect git curl screen
-
-#Adding to the docker group is necessary for eth2stats to run.
+#Adding to the docker group is necessary for eth2stats to run. Do this as early as possible so the user can step away.
 groups `id -un -- 1000`| grep docker
 RESULT=$?
 if [ $RESULT -eq 0 ]; then
@@ -30,6 +24,13 @@ else
   echo "REBOOT and relaunch setup.sh"
   exit 1
 fi
+
+#update the system
+sudo apt update && sudo apt dist-upgrade -y
+
+#install dependencies for bazel, expect is to add the unbuffer command to allow colorful text piping
+sudo apt install -y pkg-config zip g++ zlib1g-dev unzip python expect git curl screen
+
 
 #check for docker and install it if necessary
 which docker
@@ -99,6 +100,15 @@ sudo chown -R `id -un -- 1000`:`id -un -- 1000` /home/`id -un -- 1000`/.cache/ba
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS beacon-screen  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/beacon_chain_restarter.sh; exec bash'"
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS validator-screen  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/validator_restarter.sh; exec bash'"
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS geth  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/launch_geth.sh; exec bash'"
+
+
+
+#permissions got jacked for the git repo, won't hurt to set all home permissions
+sudo mkdir -p $HOME/.cache/bazel/_bazel_`id -un -- 1000`
+sudo chown -R `id -un -- 1000`:`id -un -- 1000` $HOME
+sudo chown -R `id -un -- 1000`:`id -un -- 1000` $HOME/.*
+sudo chown -R root:root $HOME/.cache/bazel/_bazel_root
+sudo chown -R `id -un -- 1000`:`id -un -- 1000` /home/`id -un -- 1000`/.cache/bazel
 
 #create a key pair just to get things started.
 cd $HOME && $HOME/prysmatic_bazel/create_wallet.sh
