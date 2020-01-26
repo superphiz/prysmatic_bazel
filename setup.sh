@@ -16,12 +16,9 @@ else
   #Add the user to docker
   sudo groupadd docker
   sudo usermod -aG docker `id -un -- 1000`
-  #give a notice then terminate the script beacuse they're not ready
-  echo You are NOT in the docker group I\'m adding you, but you MUST exit and log back in and restart this script. \(Sorry, it has to be this way\)
-  echo REBOOT
-  echo REBOOT
-  echo REBOOT and relaunch setup.sh
-  exit 1
+  #I don't know if this helps, but I'm trying to get the session to recognize the user as a member of docker without logging out.
+  newgrp docker
+  newgrp `id -un -- 1000`
 fi
 
 
