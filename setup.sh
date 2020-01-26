@@ -93,6 +93,7 @@ sudo cp $HOME/prysmatic_bazel/rc.local /etc/
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/.*
 sudo chown -R root:root /home/`id -un -- 1000`/.cache/bazel/_bazel_root
+sudo chown -R `id -un -- 1000`:`id -un -- 1000` /home/`id -un -- 1000`/.cache/bazel
 
 #starting screen jobs now
 /bin/su `id -un -- 1000` -c "/usr/bin/screen -dmS beacon-screen  bash -c '/home/`id -un -- 1000`/prysmatic_bazel/beacon_chain_restarter.sh; exec bash'"
