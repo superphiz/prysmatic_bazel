@@ -120,7 +120,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 printf "${RED}READ THE FOLLOWING TEXT FOR SHURE LEGIT PLZ.\n${NC}"
 
-printf "${YELLOW}\n\nThe basic setup is done. It looks like nothing is happening, but everything is currently syncing in the background. \n\nCopy the message and use it to send the transaction from https://prylabs.net/participate. \n\nYou can now access three screen sessions accessible by 'screen -ls' that will show 'beacon-screen', 'validator-screen' and 'geth'.\n\n${NC}"
+printf "${YELLOW}\n\nThe basic setup is done. It looks like nothing is happening, but everything is currently syncing in the background. \n\nCopy the message and use it to send the transaction from https://prylabs.net/participate. \n\nYou can now access the screen sessions with 'screen -ls' that will show 'beacon-screen' and 'validator-screen'.\n\n${NC}"
 
 #show running screens
 /bin/su `id -un -- 1000` -c "screen -ls"
