@@ -2,7 +2,7 @@
 
 ## These scripts modify critical system files and should only be used on a testing machine!
 
-## Follow along with this video walkthrough: https://www.youtube.com/watch?v=7qqYHaN2Cc
+## Follow along with this video walkthrough: https://www.youtube.com/watch?v=7qqYHaN2CcY
 
 These scripts are intended to take a clean Ubuntu 18.04 target (server or desktop) and install the prysmatic beacon chain and validator clients.
 
