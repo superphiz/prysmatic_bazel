@@ -2,6 +2,8 @@
 
 ## These scripts modify critical system files and should only be used on a testing machine!
 
+## Follow along with this video walkthrough: https://www.youtube.com/watch?v=7qqYHaN2Cc
+
 These scripts are intended to take a clean Ubuntu 18.04 target (server or desktop) and install the prysmatic beacon chain and validator clients.
 
 They will also generate an Ethereum2 wallet address which will display on screen and be saved in the user's home directory.
@@ -10,13 +12,18 @@ After setup, upon reboot, two screen instances are launched, "beacon" and "valid
 
 These scripts will also rebuild and restart the beacon chain and validator if they are crashed or exit. To rebuild or restart a service, enter the screen session and type "CTRL C" once to kill the process, it will respawn.
 
-
 Steps for use:
 
 1. Install Ubuntu 18.04 on a clean target as a desktop or server. (You can use a virtual machine!)
 2. Open a terminal and run these commands: 
 
     git clone https://github.com/superphiz/prysmatic_setup
+    
+    cd prysmatic_setup
+    
+    ./setup.sh
+    
+    (Reboot)
     
     cd prysmatic_setup
     
