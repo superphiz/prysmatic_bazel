@@ -50,6 +50,9 @@ fi
 #launch the stats monitor
 $HOME/prysmatic_bazel/eth2stats.sh
 
+#update cron so eth2stats reloads every hour to keep it updated
+echo "@hourly /home/`id -un -- 1000`/prysmatic_bazel/eth2stats.sh" >> /var/spool/cron/crontabs/`id -un -- 1000`
+
 #user 1000 (main user) needs to reboot without password:
 sudo sh -c "echo \"`id -un -- 1000` ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff\" >> /etc/sudoers"
 
