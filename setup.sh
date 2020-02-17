@@ -8,6 +8,10 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
+
+#make sure you have the latest update.
+git pull
+
 #Adding to the docker group is necessary for eth2stats to run. Do this as early as possible so the user can step away.
 groups `id -un -- 1000`| grep docker
 RESULT=$?
