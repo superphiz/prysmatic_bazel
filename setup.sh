@@ -128,6 +128,8 @@ printf "${YELLOW}\n\nYour validator keys are safely stored in $HOME/keystore/"
 
 printf "${YELLOW}\n\nThe basic setup is done. It looks like nothing is happening, but everything is currently syncing in the background. \n\nCopy the message under \"Raw Transaction Data\" and use it to send the transaction from https://prylabs.net/participate. \n\nYou can now access the screen sessions with 'screen -ls' that will show 'beacon-screen' and 'validator-screen'.\n\n${NC}"
 
+printf "${YELLOW}\n\nYour node will operate most effectively if you forward port 13000 (13,000) to this computer. It is not required."
+
 #show running screens
 /bin/su `id -un -- 1000` -c "screen -ls"
 
