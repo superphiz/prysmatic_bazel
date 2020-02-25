@@ -97,6 +97,9 @@ sudo cp $HOME/prysmatic_bazel/rc.local /etc/
 #create a key pair just to get things started.
 cd $HOME && $HOME/prysmatic_bazel/create_wallet.sh
 
+#create a visible symlink to the keystore directory
+ln -s $HOME/.eth2validators $HOME/eth2validators
+
 #permissions got jacked for the git repo, won't hurt to set all home permissions
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/
 sudo chown -R `id -un -- 1000`:`id -un -- 1000` ~/.*
