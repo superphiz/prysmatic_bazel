@@ -127,7 +127,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 printf "\n\n${RED}READ THE FOLLOWING TEXT (REALLY!)\n${NC}"
 
-printf "${YELLOW}\n\nYour validator keys are safely stored in $HOME/keystore/"
+printf "${YELLOW}\n\nYour validator keys are safely stored in $HOME/.eth2validators/"
 
 printf "${YELLOW}\n\nThe basic setup is done. It looks like nothing is happening, but everything is currently syncing in the background. \n\nCopy the message under \"Raw Transaction Data\" and use it to send the transaction from https://prylabs.net/participate. \n\nYou can now access the screen sessions with 'screen -ls' that will show 'beacon-screen' and 'validator-screen'.\n\n${NC}"
 
