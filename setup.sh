@@ -64,7 +64,7 @@ sudo sh -c "echo \"`id -un -- 1000` ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbi
 #sudo apt install -y geth
 
 #download bazel (this could be updated to pull the latest release!)
-wget https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh
+wget https://github.com/bazelbuild/bazel/releases/download/2.2.0/bazel-2.2.0-installer-linux-x86_64.sh
 
 chmod +x bazel-2.0.0-installer-linux-x86_64.sh
 
