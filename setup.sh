@@ -66,9 +66,9 @@ sudo sh -c "echo \"`id -un -- 1000` ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbi
 #download bazel (this could be updated to pull the latest release!)
 wget https://github.com/bazelbuild/bazel/releases/download/2.1.1/bazel-2.1.1-installer-linux-x86_64.sh
 
-chmod +x bazel-2.0.0-installer-linux-x86_64.sh
+chmod +x bazel-2.1.1-installer-linux-x86_64.sh
 
-./bazel-2.0.0-installer-linux-x86_64.sh --user
+./bazel-2.1.1-installer-linux-x86_64.sh --user
 
 #bazel needs this path - this appears to be redundant because it is sourced later in this file.
 export PATH="$PATH:$HOME/bin"
