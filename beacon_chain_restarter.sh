@@ -6,7 +6,7 @@ while true
 do
 	cd $HOME/prysm && /usr/bin/git gc --prune=now
 	cd $HOME/prysm && /usr/bin/git pull
-	cd $HOME/prysm && $HOME/bin/bazel build //beacon-chain:beacon-chain 
+	cd $HOME/prysm && $HOME/bin/bazel build //beacon-chain:beacon-chain \
 	cd $HOME/prysm && $HOME/bin/bazel run //beacon-chain -- \
 		--datadir=$HOME/prysm \
 		--p2p-host-ip=$(curl -s v4.ident.me) \
