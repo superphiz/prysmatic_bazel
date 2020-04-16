@@ -13,6 +13,6 @@ do
 		--p2p-max-peers=100 \
 		--p2p-tcp-port=13000 \
 		--p2p-udp-port=12000 \
-		--p2p-max-peers=200 \
+		--p2p-max-peers=200
 done
 
