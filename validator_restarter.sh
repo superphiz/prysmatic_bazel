@@ -7,6 +7,6 @@ do
 	cd $HOME/prysm && $HOME/bin/bazel run validator -- \
 	--datadir=$HOME/.eth2validators \
 	--password="12345678" \
-	--graffiti="73757065727068697A" \
-	2>&1 | tee $HOME/prysm/validator.log
+	--graffiti="superphiz" \
+	2>&1 | tee -a $HOME/validator.log
 done
