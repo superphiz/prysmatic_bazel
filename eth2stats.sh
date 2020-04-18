@@ -23,7 +23,7 @@ docker run -d --name eth2stats --restart always --network="host" \
       run --v \
       --eth2stats.node-name="superphiz script" \
       --data.folder="$HOME/prysm" \
-      --eth2stats.addr="grpc.sapphire.eth2stats.net:443" \
+      --eth2stats.addr="grpc.topaz.eth2stats.io:443" --eth2stats.tls=true \
       --beacon.metrics-addr="http://localhost:8080/metrics" \
       --eth2stats.tls=true \
       --beacon.type="prysm" --beacon.addr="localhost:4000"
